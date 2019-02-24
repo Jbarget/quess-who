@@ -3,18 +3,34 @@
   <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="normalise.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
     <title>Guess Who?</title>
   </head>
   <body>
     <main>
       <section id='home-screen' class='homeScreen'>
-        <h1>Match names to faces</h1>
-        <p>Avoid awkward moments around the kettle</p>
+        <h1 class="brand-font mega-font">Match names to faces</h1>
+        <p class="subheader-font bold-font">Avoid awkward moments around the kettle</p>
         <p>Put names to the faces of your colleagues to test your knowledge</p>
-        <button class='roundButton' id='2'></button>
-        <button class='roundButton' id='3'></button>
-        <button class='roundButton' id='4'></button>
+        <div class="shadow-box">
+          <span class="brand-font jumbo-font">50</span>
+          <span>Faces</span>
+          <button class='roundButton' id='2'>Start</button>
+          <span>(Approx. 5mins)</span>
+        </div>
+        <div class="shadow-box">
+          <span class="brand-font jumbo-font">100</span>
+          <span>Faces</span>
+          <button class='roundButton' id='3'>Start</button>
+          <span>(Approx. 5mins)</span>
+        </div>
+        <div class="shadow-box">
+          <span class="brand-font jumbo-font">150</span>
+          <span>Faces</span>
+          <button class='roundButton' id='4'>Start</button>
+          <span>(Approx. 5mins)</span>
+        </div>
       </section>
       <section id='game-screen' class='gameScreen hide'>
         <header id='header'>
@@ -22,7 +38,7 @@
           <button id='quit-button'>Quit</button>
         </header>
         <div>
-          <h1>Who's this?<h1>
+          <h1 class="brand-font">Who's this?<h1>
           <p>
             <span id='current-round'></span>/<span id='total-rounds'></span>
           </p>

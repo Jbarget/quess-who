@@ -1,3 +1,36 @@
+/* Utility classes */
+
 .hide {
   display: none
+}
+.brand-font {
+  font-family: 'Abril Fatface', cursive;
+  font-weight: 500;
+}
+.mega-font {
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+.jumbo-font {
+  font-size: 4.5rem;
+}
+.bold-font {
+  font-weight: bold;
+}
+.subheader-font {
+  font-size: 1.25rem;
+}
+
+/* Reset */
+
+html {
+  font-size: 16px;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+main {
+  max-width: 75rem;
+  margin: auto;
+  padding: 7rem 1.25rem;
 }
