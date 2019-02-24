@@ -49,16 +49,20 @@
           </p>
         </div>
 
-        <div>
-          <img id='user-image' alt='user image'/>
+        <div class="game-wrapper">
+          <div class="game-img-wrapper">
+            <img class="game-img" id='user-image' alt='user image'/>
+          </div>
+          <div class="game-controls">
+            <div class='namesContainer game-answers' id='namesContainer'>
+              <button class='button game-answer userName'></button>
+              <button class='button game-answer userName'></button>
+              <button class='button game-answer userName'></button>
+              <button class='button game-answer userName'></button>
+            </div>
+            <button type="button" name="nextButton" id='next-button' class='next-button button hide'>Next</button>
+          </div>
         </div>
-        <div class='namesContainer' id='namesContainer'>
-          <button class='userName'></button>
-          <button class='userName'></button>
-          <button class='userName'></button>
-          <button class='userName'></button>
-        </div>
-        <button type="button" name="nextButton" id='next-button' class='hide'>Next</button>
       </section>
       <section id='end-screen' class='endScreen hide'>
         <h1>Your Score</h1>
