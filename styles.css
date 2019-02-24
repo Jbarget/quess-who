@@ -40,6 +40,7 @@ main {
 /* Custom UI classes */
 
 .card-wrapper {
+    margin-top: 3rem;
     display: flex;
     flex-flow: initial;
     justify-content: space-between;
