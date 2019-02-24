@@ -2,15 +2,14 @@
 /* Reset */
 
 html {
-  font-size: 16px;
+  font-size: 16px; /* 8x2=16 */
 }
 body {
   font-family: 'Montserrat', sans-serif;
 }
 main {
-  max-width: 56rem;
+  max-width: 56rem; /* 8x7=56 */
   margin: auto;
-  padding: 4rem 1.25rem;
 }
 
 /* Utility classes */
@@ -23,12 +22,12 @@ main {
   font-weight: 500;
 }
 .mega-font {
-  font-size: 3rem;
+  font-size: 3rem; /* 48px */
   letter-spacing: 1px;
   padding: 1rem 0;
 }
 .jumbo-font {
-  font-size: 4.5rem;
+  font-size: 4.5rem; /* 72px */
 }
 .bold-font {
   font-weight: bold;
@@ -38,6 +37,23 @@ main {
 }
 
 /* Custom UI classes */
+/* ======================================================== */
+
+.homeScreen, .gameScreen, .endScreen {
+    padding: 4rem 1.25rem;
+}
+.button {
+  border: none;
+  font-weight: bold;
+  -webkit-appearance: none;
+  border-radius: 3px;
+}
+.button:hover{
+  cursor: pointer;
+}
+
+
+/* Front-page cards */
 
 .card-wrapper {
     margin-top: 3rem;
@@ -54,10 +70,10 @@ main {
 }
 .card-100 {
   background-color: #000;
-  color: #03FF80; //green
+  color: #03FF80; /*green*/
 }
 .card-150 {
-  background-color: #03FF80; //green
+  background-color: #03FF80; /*green*/
 }
     .card * {
       display: block;
@@ -68,7 +84,7 @@ main {
       line-height: 1.333;
     }
         .card-50 .card-number {
-          color: #00D4FA; //blue
+          color: #00D4FA; /*blue*/
         }
     .card-faces {
       margin-top: 0;
@@ -82,23 +98,16 @@ main {
     .card-button {
       text-transform: uppercase;
       font-size: 1.25rem;
-      padding: 0.75rem 3rem;
-      border: none;
-      letter-spacing: 1px;
       color: #FFF;
-      font-weight: bold;
-      -webkit-appearance: none;
-      border-radius: 3px;
-    }
-    .card-button:hover{
-      cursor: pointer;
+      letter-spacing: 1px;
+      padding: 0.75rem 3rem;
     }
         .card-50 .card-button {
-          background-color: #00D4FA; //blue
+          background-color: #00D4FA; /*blue*/
         }
         .card-100 .card-button {
           color: #000;
-          background-color: #03FF80; //green
+          background-color: #03FF80; /*green*/
         }
         .card-150 .card-button {
           background-color: #000;
@@ -106,3 +115,33 @@ main {
     .card-footer {
       margin: 2.5rem auto 5rem;
     }
+
+
+/* Quiz pages */
+
+.nav-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #03FF80; /*green*/
+}
+  .nav {
+    max-width: 72rem; /* 8x9=72 */
+    margin: auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+  }
+    .nav-button {
+      padding: 0.5rem 1.75rem;
+    }
+
+.game-titles-wrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
