@@ -1,3 +1,18 @@
+
+/* Reset */
+
+html {
+  font-size: 16px;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+main {
+  max-width: 56rem;
+  margin: auto;
+  padding: 4rem 1.25rem;
+}
+
 /* Utility classes */
 
 .hide {
@@ -10,6 +25,7 @@
 .mega-font {
   font-size: 3rem;
   letter-spacing: 1px;
+  padding: 1rem 0;
 }
 .jumbo-font {
   font-size: 4.5rem;
@@ -21,16 +37,71 @@
   font-size: 1.25rem;
 }
 
-/* Reset */
+/* Custom UI classes */
 
-html {
-  font-size: 16px;
+.card-wrapper {
+    display: flex;
+    flex-flow: initial;
+    justify-content: space-between;
+    align-items: stretch;
 }
-body {
-  font-family: 'Montserrat', sans-serif;
+.card {
+    flex-basis: 17.5rem;
+    /* padding: 3rem; */
+    box-shadow: 0 24px 32px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
-main {
-  max-width: 75rem;
-  margin: auto;
-  padding: 7rem 1.25rem;
+.card-100 {
+  background-color: #000;
+  color: #03FF80; //green
 }
+.card-150 {
+  background-color: #03FF80; //green
+}
+    .card * {
+      display: block;
+      margin: auto;
+    }
+    .card-number {
+      margin-top: 2.5rem;
+      line-height: 1.333;
+    }
+        .card-50 .card-number {
+          color: #00D4FA; //blue
+        }
+    .card-faces {
+      margin-top: 0;
+      margin-bottom: 6rem;
+      font-size: 1.5rem;
+      color: #000;
+    }
+        .card-100 .card-faces {
+          color: #FFF;
+        }
+    .card-button {
+      text-transform: uppercase;
+      font-size: 1.25rem;
+      padding: 0.75rem 3rem;
+      border: none;
+      letter-spacing: 1px;
+      color: #FFF;
+      font-weight: bold;
+      -webkit-appearance: none;
+      border-radius: 3px;
+    }
+    .card-button:hover{
+      cursor: pointer;
+    }
+        .card-50 .card-button {
+          background-color: #00D4FA; //blue
+        }
+        .card-100 .card-button {
+          color: #000;
+          background-color: #03FF80; //green
+        }
+        .card-150 .card-button {
+          background-color: #000;
+        }
+    .card-footer {
+      margin: 2.5rem auto 5rem;
+    }
