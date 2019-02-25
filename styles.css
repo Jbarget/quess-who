@@ -43,8 +43,20 @@ img {
 /* ======================================================== */
 
 .homeScreen, .gameScreen, .endScreen {
-    padding: 4rem 1.25rem;
+    padding: 1rem 1.25rem 4rem;
 }
+  .homeScreen {
+    background-image: url("images/logo/gorilla-green.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: top;
+    background-size: cover;
+    padding-bottom: 8.5rem;
+  }
+  .gameScreen {
+    padding-top: 3rem;
+  }
+
 .button {
   border: none;
   font-weight: bold;
@@ -53,6 +65,9 @@ img {
 }
 .button:hover{
   cursor: pointer;
+}
+.main-title {
+  margin: 0;
 }
 
 
@@ -67,9 +82,10 @@ img {
 }
 .card {
     flex-basis: 17rem;
-    /* padding: 3rem; */
     box-shadow: 0 24px 32px 0px rgba(0, 0, 0, 0.1);
     text-align: center;
+    background-color: #FFF;
+    opacity: 0.95;
 }
 .card-100 {
   background-color: #000;
@@ -138,6 +154,9 @@ img {
     align-items: center;
     height: 5rem;
   }
+    .nav-logo {
+      width: 2.5rem;
+    }
     .nav-button {
       padding: 0.5rem 1.75rem;
     }
@@ -148,6 +167,9 @@ img {
   justify-content: space-between;
   align-items: center;
 }
+  .game-titles-wrapper * {
+    margin: 0;
+  }
 .game-wrapper {
   display: flex;
   justify-content: flex-start;
