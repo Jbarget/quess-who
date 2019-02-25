@@ -1,9 +1,16 @@
+const getInitialState = (gameNames, numberOfRounds) => ({
+  correct: [],
+  incorrect: [],
+  roundNumber: -1,
+  rounds: shuffleArray(gameNames).slice(0, numberOfRounds)
+})
+
 const setNumberOfRounds = (event) => {
   const numberOfRounds = event.target.id
   document.getElementById('total-rounds').textContent = numberOfRounds
   document.getElementById('total-score').textContent = numberOfRounds
   document.getElementById('header').classList.add(numberOfRounds)
-  startGame(numberOfRounds)
+  startGame(numberOfRounds, getInitialState)
 }
 
 const showScreen = (screenId) => {
@@ -15,8 +22,18 @@ const showScreen = (screenId) => {
     .forEach(screenId => document.getElementById(screenId).classList.add('hide'))
 }
 
-const handleQuitClick = () => {
+const resetAnswerClasses = () => {
+  const nameButtons = document.querySelectorAll('.userName')
+  nameButtons.forEach(button => {
+    button.classList.remove('correctAnswer')
+    button.classList.remove('incorrectAnswer')
+  })
+}
+
+const handleQuitClick = (roundHandler, advanceRound) => () => {
   showScreen('home-screen')
+  document.getElementById('names-container').removeEventListener('click', roundHandler)
+  document.getElementById('next-button').removeEventListener('click', advanceRound)
 }
 
 const shuffleArray = (array) => {
@@ -40,11 +57,8 @@ const shuffleArray = (array) => {
 }
 
 const init = () => {
-  Array.from(document.getElementsByClassName('roundButton'))
+  document.querySelectorAll('.roundButton')
     .forEach(button => button.addEventListener('click', setNumberOfRounds))
-
-  document.getElementById('quit-button').addEventListener('click', handleQuitClick)
-  document.getElementById('restart-button').addEventListener('click', handleQuitClick)
 }
 
 const humans = {
@@ -81,13 +95,12 @@ const gameNames = names.map((name, i) => {
 const newRound = (rounds, getRoundNumber) => {
   const roundNumber = getRoundNumber()
   const currentRound = rounds[roundNumber]
-  console.log({ roundNumber });
   const namesToPlay = shuffleArray(currentRound.names.concat([currentRound.realName]))
-  const arrayOfNameButtons = Array.from(document.getElementsByClassName('userName'))
+  const nameButtons = document.querySelectorAll('.userName')
 
   document.getElementById('next-button').classList.add('hide')
   document.getElementById('current-round').textContent = roundNumber
-  arrayOfNameButtons.forEach((button, i) => {
+  nameButtons.forEach((button, i) => {
     button.textContent = namesToPlay[i]
     button.disabled = false
   })
@@ -123,10 +136,14 @@ const handleNameClick = ({ rounds, addCorrect, addIncorrect, getRoundNumber, get
 const handleNextClick = ({ rounds, getRoundNumber, incRoundNumber, getIsLastRound, getIncorrect }) => () => {
   const isLastRound = getIsLastRound()
   incRoundNumber()
-  console.log({ isLastRound });
+  resetAnswerClasses()
+
   if (isLastRound) {
     const incorrect = getIncorrect()
-
+    const incorrectAnswersList = document.getElementById('incorrect-answers')
+    while (incorrectAnswersList.firstChild) {
+      incorrectAnswersList.removeChild(incorrectAnswersList.firstChild)
+    }
     fastdom.mutate(() => {
       incorrect.forEach(incorrectAnswer => {
         const node = document.createElement('LI')
@@ -138,7 +155,7 @@ const handleNextClick = ({ rounds, getRoundNumber, incRoundNumber, getIsLastRoun
 
         node.appendChild(textNode)
         node.appendChild(imgNode)
-        document.getElementById('incorrect-answers').appendChild(node)
+        incorrectAnswersList.appendChild(node)
       })
       document.getElementById('score').textContent = rounds.length - incorrect.length
     })
@@ -147,12 +164,9 @@ const handleNextClick = ({ rounds, getRoundNumber, incRoundNumber, getIsLastRoun
   newRound(rounds, getRoundNumber)
 }
 
-const startGame = (numberOfRoundsString) => {
-  let roundNumber = -1
+const startGame = (numberOfRoundsString, getInitialState) => {
+  let { correct, incorrect, roundNumber, rounds } = getInitialState(gameNames, numberOfRoundsString)
   const numberOfRounds = Number(numberOfRoundsString)
-  const rounds = shuffleArray(gameNames).slice(0, numberOfRounds)
-  let correct = []
-  let incorrect = []
   const addCorrect = () => correct = correct.concat([rounds[roundNumber]])
   const addIncorrect = () => incorrect = incorrect.concat([rounds[roundNumber]])
   const getRoundNumber = () => roundNumber
@@ -162,10 +176,13 @@ const startGame = (numberOfRoundsString) => {
 
   const roundHandler = handleNameClick({ rounds, addCorrect, addIncorrect, getRoundNumber, getIsLastRound })
   const advanceRound = handleNextClick({ rounds, getRoundNumber, incRoundNumber, getIsLastRound, getIncorrect })
-  document.getElementById('namesContainer').addEventListener('click', roundHandler)
+  document.getElementById('names-container').addEventListener('click', roundHandler)
   document.getElementById('next-button').addEventListener('click', advanceRound)
 
-  // const toggleAnswered = () => answered = !answered
+  document.getElementById('quit-button').addEventListener('click', handleQuitClick(roundHandler, advanceRound))
+  document.getElementById('restart-button').addEventListener('click', handleQuitClick(roundHandler, advanceRound))
+  document.getElementById('next-button').textContent = 'Next'
+
   advanceRound(rounds, roundNumber)
   showScreen('game-screen')
 }
