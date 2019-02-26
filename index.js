@@ -148,13 +148,15 @@ const handleNextClick = ({ rounds, getRoundNumber, incRoundNumber, getIsLastRoun
       incorrect.forEach(incorrectAnswer => {
         const node = document.createElement('LI')
         const imgNode = document.createElement('IMG')
-        var textNode = document.createTextNode(incorrectAnswer.realName)
+        const span = document.createElement('SPAN')
+        const textNode = document.createTextNode(incorrectAnswer.realName)
         imgNode.src = incorrectAnswer.image
         imgNode.class = 'incorrectAnswerImg'
         textNode.class = 'incorrectAnswerName'
 
         node.appendChild(imgNode)
-        node.appendChild(textNode)
+        span.appendChild(textNode)
+        node.appendChild(span)
         incorrectAnswersList.appendChild(node)
       })
       document.getElementById('score').textContent = rounds.length - incorrect.length
