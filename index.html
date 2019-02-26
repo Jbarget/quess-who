@@ -9,6 +9,7 @@
   </head>
   <body>
     <main>
+      <!-- HOME SCREEN -->
       <section id='home-screen' class='homeScreen'>
         <h1 class="main-title brand-font mega-font">Quess Who</h1>
         <p class="subheader-font bold-font">Do you know who you work with?</p>
@@ -33,8 +34,9 @@
             <span class="card-footer">(Approx. 15mins)</span>
           </div>
         </div>
-
       </section>
+
+      <!-- GAME SCREEN -->
       <section id='game-screen' class='gameScreen hide'>
         <header class="nav-wrapper" id='header'>
           <div class="nav">
@@ -64,15 +66,21 @@
           </div>
         </div>
       </section>
-      <section id='end-screen' class='endScreen hide'>
-        <h1>Your Score</h1>
-        <p><span id='score'></span>/<span id='total-score'></span></p>
-        <p>Incorrect Answers</p>
-        <ol id='incorrect-answers'>
-        </ol>
 
-        <button id='restart-button'>Quit</button>
+      <!-- END SCREEN -->
+      <section id='end-screen' class='endScreen hide'>
+        <div class="end-titles">
+          <h1>Your Score</h1>
+          <p class="end-score main-title brand-font jumbo-font"><span id='score'></span>/<span id='total-score'></span></p>
+        </div>
+        <div class="end-wrong-answers-wrapper">
+          <p class="brand-font subtitle-font">Incorrect Answers</p>
+          <ul class="end-wrong-answers" id='incorrect-answers'>
+          </ul>
+          <button class="button end-game-button" id='restart-button'>Quit</button>
+        </div>
       </section>
+
     </main>
     <script type="text/javascript" src='./index.js'></script>
     <script type="text/javascript" src='./fastdom.js'></script>

@@ -20,30 +20,36 @@ img {
 .hide {
   display: none
 }
+.main-title {
+  margin: 0;
+}
 .brand-font {
   font-family: 'Abril Fatface', cursive;
   font-weight: 500;
+}
+.bold-font {
+  font-weight: bold;
+}
+.jumbo-font {
+  font-size: 4.5rem; /* 72px */
 }
 .mega-font {
   font-size: 3rem; /* 48px */
   letter-spacing: 1px;
   padding: 1rem 0;
 }
-.jumbo-font {
-  font-size: 4.5rem; /* 72px */
-}
-.bold-font {
-  font-weight: bold;
+.subtitle-font {
+  font-size: 2rem; /* 32px */
 }
 .subheader-font {
-  font-size: 1.25rem;
+  font-size: 1.25rem; /* 20px */
 }
 
 /* Custom UI classes */
 /* ======================================================== */
 
-.homeScreen, .gameScreen, .endScreen {
-    padding: 1rem 1.25rem 4rem;
+.gameScreen, .endScreen {
+    padding: 3rem 1.25rem 4rem;
 }
   .homeScreen {
     background-image: url("images/logo/gorilla-green.svg");
@@ -51,10 +57,7 @@ img {
     background-position: right;
     background-position-y: top;
     background-size: cover;
-    padding-bottom: 8.5rem;
-  }
-  .gameScreen {
-    padding-top: 3rem;
+    padding: 1rem 1.25rem 8.5rem;
   }
 
 .button {
@@ -66,9 +69,7 @@ img {
 .button:hover{
   cursor: pointer;
 }
-.main-title {
-  margin: 0;
-}
+
 
 
 /* Front-page cards */
@@ -202,11 +203,66 @@ img {
         border-style: solid;
         box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.1);
       }
-      .game-answer:hover {
-        box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.1);
+        .game-answer:hover {
+          box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.1);
+        }
+      .correctAnswer {
+        border-width: 2px;
+        border-color: #000;
+        background-color: #03FF80; /*green*/
+        color: #000;
       }
+      .incorrectAnswer {
+        text-decoration: line-through;
+        color: rgba(0,0,0,0.5);
+      }
+
       .next-button {
         font-size: 1.25rem;
         padding: 0.5rem 2rem;
         border: 1px solid rgb(0, 0, 0);
       }
+
+/* End pages */
+
+.end-titles {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+  .end-score {
+    display: inline-block;
+    background-color: #000;
+    color: #03FF80; /*green*/
+    padding: 2rem 3rem;
+    margin: 0;
+    box-shadow: 0 24px 32px 0px rgba(0, 0, 0, 0.1);
+  }
+
+.end-wrong-answers-wrapper {
+  text-align: center;
+}
+  .end-wrong-answers {
+    margin: 0em 0em 3rem;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+  }
+  .end-wrong-answers li {
+    width: 40%;
+    display: inline-block;
+    margin-right: 10%;
+  }
+  .end-wrong-answers li img {
+
+  }
+
+  .end-game-button {
+    display: inline-block;
+    background-color: #03FF80; /*green*/
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    box-shadow: 0px 6px 20px -3px rgba(0,0,0,0.1);
+  }
+
+
+}
