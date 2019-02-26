@@ -1,3 +1,48 @@
+const people = {
+  'Adam Elmore': './images/Adam Elmore.jpg',
+  'Adam Park': './images/Adam Park.jpg',
+  'Alex Duncan': './images/Alex Duncan.jpg',
+  'Alice Davies': './images/Alice Davies.jpg',
+  'Andrew Harris': './images/Andrew Harris.jpg',
+  'Andy Element': './images/Andy Element.jpg',
+  'Anina Grostern': './images/Anina Grostern.jpg',
+  'Anusha Amin': './images/Anusha Amin.jpg',
+  'Asa Bradshaw': './images/Asa Bradshaw.jpg',
+  'Bobbi Talbot': './images/Bobbi Talbot.jpg',
+  'Bobby Steere': './images/Bobby Steere.jpg',
+  'Brooke Berte': './images/Brooke Berte.jpg',
+  'Callum Henderson': './images/Callum Henderson.jpg',
+  'Callum Taylor': './images/Callum Taylor.jpg',
+  'Cameron Stokes': './images/Cameron Stokes.jpg',
+  'Catherine Handley': './images/Catherine Handley.jpg',
+  'Cecily Melson': './images/Cecily Melson.jpg',
+  'Charlie Colwill': './images/Charlie Colwill.jpg',
+  'Charlie Greene': './images/Charlie Greene.jpg',
+  'Charlotte Emmersom': './images/Charlotte Emmersom.jpg',
+  'Charly Nelson': './images/Charly Nelson.jpg',
+  'Chris Priestly': './images/Chris Priestly.jpg',
+  'Christian Smith': './images/Christian Smith.jpg',
+  'Daisy Eakins': './images/Daisy Eakins.jpg',
+  'Dan Gillespie': './images/Dan Gillespie.jpg',
+  'Dayo Kamson': './images/Dayo Kamson.jpg',
+  'Dylan Davenport': './images/Dylan Davenport.jpg',
+  'Ed Burgess': './images/Ed Burgess.jpg',
+  'Eithne Bryan': './images/Eithne Bryan.jpg',
+  'Elliot Meller': './images/Elliot Meller.jpg',
+  'Elliya Cleveley': './images/Elliya Cleveley.jpg',
+  'Emily Barrett': './images/Emily Barrett.jpg',
+  'Emily Habin': './images/Emily Habin.jpg',
+  'Emma Baggott': './images/Emma Baggott.jpg',
+  'Emma Brazell': './images/Emma Brazell.jpg',
+  'Emma Davis': './images/Emma Davis.jpg',
+  'Emma Engelmann': './images/Emma Engelmann.jpg',
+  'Emma Guiness': './images/Emma Guiness.jpg',
+  'Emma Brazell': './images/Emma Brazell.jpg',
+  'Emma Brazell': './images/Emma Brazell.jpg',
+  'Emma Brazell': './images/Emma Brazell.jpg',
+  'Emma Brazell': './images/Emma Brazell.jpg',
+}
+
 const getInitialState = (gameNames, numberOfRounds) => ({
   correct: [],
   incorrect: [],
@@ -64,15 +109,7 @@ const init = () => {
     .forEach(button => button.addEventListener('click', setNumberOfRounds))
 }
 
-const humans = {
-  'Jamie one': './images/one.jpg',
-  'Jamie two': './images/one.jpg',
-  'Jamie three': './images/one.jpg',
-  'Jamie four': './images/one.jpg',
-  'Jamie five': './images/one.jpg',
-  'Jamie six': './images/one.jpg'
-}
-const names = Object.keys(humans)
+const names = Object.keys(people)
 const numberOfNames = names.length
 
 const generateRandomIndex = (indexToAvoid) => {
@@ -86,7 +123,7 @@ const generateRandomIndex = (indexToAvoid) => {
 const gameNames = names.map((name, i) => {
   return {
     realName: name,
-    image: humans[name],
+    image: people[name],
     names: [
       names[generateRandomIndex(i)],
       names[generateRandomIndex(i)],
