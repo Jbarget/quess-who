@@ -32,7 +32,10 @@ const resetAnswerClasses = () => {
 
 const handleQuitClick = (roundHandler, advanceRound) => () => {
   showScreen('home-screen')
-  document.getElementById('names-container').removeEventListener('click', roundHandler)
+  const nameButtons = document.querySelectorAll('.userName')
+  nameButtons.forEach((button) => {
+    button.removeEventListener('click', roundHandler)
+  })
   document.getElementById('next-button').removeEventListener('click', advanceRound)
 }
 
@@ -178,7 +181,11 @@ const startGame = (numberOfRoundsString, getInitialState) => {
 
   const roundHandler = handleNameClick({ rounds, addCorrect, addIncorrect, getRoundNumber, getIsLastRound })
   const advanceRound = handleNextClick({ rounds, getRoundNumber, incRoundNumber, getIsLastRound, getIncorrect })
-  document.getElementById('names-container').addEventListener('click', roundHandler)
+  const nameButtons = document.querySelectorAll('.userName')
+
+  nameButtons.forEach((button) => {
+    button.addEventListener('click', roundHandler)
+  })
   document.getElementById('next-button').addEventListener('click', advanceRound)
 
   document.getElementById('quit-button').addEventListener('click', handleQuitClick(roundHandler, advanceRound))
