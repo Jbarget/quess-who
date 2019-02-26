@@ -153,8 +153,8 @@ const handleNextClick = ({ rounds, getRoundNumber, incRoundNumber, getIsLastRoun
         imgNode.class = 'incorrectAnswerImg'
         textNode.class = 'incorrectAnswerName'
 
-        node.appendChild(textNode)
         node.appendChild(imgNode)
+        node.appendChild(textNode)
         incorrectAnswersList.appendChild(node)
       })
       document.getElementById('score').textContent = rounds.length - incorrect.length
