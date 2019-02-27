@@ -1,3 +1,333 @@
+
+/* Reset */
+/* 8px basis - 8s are nice numbers */
+
+html {
+  font-size: 16px; /* 8x2=16 */
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+main {
+  max-width: 56rem; /* 8x7=56 */
+  margin: auto;
+}
+img {
+  max-width: 100%;
+}
+
+/* Utility classes */
+/* applied directly to elements irrespective of use-context */
+
 .hide {
   display: none
+}
+.main-title {
+  margin: 0;
+}
+.brand-font {
+  font-family: 'Abril Fatface', cursive;
+  font-weight: 500;
+}
+.bold-font {
+  font-weight: bold;
+}
+.jumbo-font {
+  font-size: 4.5rem; /* 72px */
+}
+.mega-font {
+  font-size: 3rem; /* 48px */
+  letter-spacing: 1px;
+  padding: 1rem 0;
+}
+.subtitle-font {
+  font-size: 2rem; /* 32px */
+}
+.subheader-font {
+  font-size: 1.25rem; /* 20px */
+}
+
+/* Custom UI classes */
+/* ======================================================== */
+/*
+  colours used: Pure Black, Pure White, Green and Blue
+  - defined below.
+  file is separated into 3 parts: styles for "home", "game"
+   and "endgame".
+*/
+
+.gameScreen, .endScreen {
+    padding: 3rem 1.25rem 4rem;
+}
+  .homeScreen {
+    background-image: url("images/ui/gorilla-green.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: top;
+    background-size: cover;
+    padding: 1rem 1.25rem 8.5rem;
+  }
+
+.button {
+  border: none;
+  font-weight: bold;
+  -webkit-appearance: none;
+  border-radius: 3px;
+}
+.button:hover{
+  cursor: pointer;
+}
+
+
+
+/* Home-page styles */
+
+.card-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    flex-flow: initial;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.card {
+    flex-basis: 17rem;
+    box-shadow: 0 24px 32px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #FFF;
+    opacity: 0.95;
+}
+.card-100 {
+  background-color: #000;
+  color: #03FF80; /*green*/
+}
+.card-150 {
+  background-color: #03FF80; /*green*/
+}
+    .card * {
+      display: block;
+      margin: auto;
+    }
+    .card-number {
+      margin-top: 2.5rem;
+      line-height: 1.333;
+    }
+        .card-50 .card-number {
+          color: #00D4FA; /*blue*/
+        }
+    .card-faces {
+      margin-top: 0;
+      margin-bottom: 3rem;
+      font-size: 1.5rem;
+      color: #000;
+    }
+        .card-100 .card-faces {
+          color: #FFF;
+        }
+    .card-button {
+      text-transform: uppercase;
+      font-size: 1.25rem;
+      color: #FFF;
+      letter-spacing: 1px;
+      padding: 0.75rem 3rem;
+    }
+        .card-50 .card-button {
+          background-color: #00D4FA; /*blue*/
+        }
+        .card-100 .card-button {
+          color: #000;
+          background-color: #03FF80; /*green*/
+        }
+        .card-150 .card-button {
+          background-color: #000;
+        }
+    .card-footer {
+      margin: 2.5rem auto 3rem;
+    }
+
+/* Quiz pages */
+
+.nav-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #03FF80; /*green*/
+}
+  .nav {
+    max-width: 72rem; /* 8x9=72 */
+    margin: auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+  }
+    .nav-logo {
+      width: 2.5rem;
+    }
+    .nav-button {
+      padding: 0.5rem 1.75rem;
+    }
+
+.game-titles-wrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  .game-titles-wrapper * {
+    margin: 0;
+  }
+.game-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+    .game-img {
+      border-radius: 8px;
+      box-shadow: 0 24px 32px 0px rgba(0, 0, 0, 0.1);
+      max-width: 24rem; /* 24*16=384px */
+      display: block;
+    }
+  .game-controls {
+    width: 100%;
+    padding-left: 1rem;
+    text-align: right;
+  }
+    .game-answers {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+      .game-answer {
+        transition: all 0.2s ease, background-position 0s;
+        padding: 1.75rem;
+        margin-bottom: 0.75rem;
+        text-align: left;
+        font-size: 24px;
+        border-width: 1px;
+        border-color: rgba(0, 0, 0, 0.15);
+        border-style: solid;
+        box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.1);
+      }
+        .game-answer:hover {
+          box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.1);
+        }
+      .correctAnswer {
+        border-width: 2px;
+        border-color: #000;
+        background-color: #03FF80; /*green*/
+        background-image: url("images/ui/Success.svg");
+        background-repeat: no-repeat;
+        background-position: 90% center;
+        background-size: 2rem; /* 32px */
+        color: #000;
+      }
+      .incorrectAnswer {
+        text-decoration: line-through;
+        color: rgba(0,0,0,0.5);
+        background-color: rgba(0,0,0,0.1);
+        background-image: url("images/ui/Close.svg");
+        background-repeat: no-repeat;
+        background-position: 90% center;
+        background-size: 2rem; /* 32px */
+      }
+
+      .next-button {
+        font-size: 1.25rem;
+        padding: 0.5rem 4rem 0.5rem 1rem;
+        border: 1px solid rgb(0, 0, 0);
+        background-image: url(images/ui/Arrow-Right.svg);
+        background-repeat: no-repeat;
+        background-position: 90% center;
+        background-size: 0.6rem; /* 9.6px */
+      }
+
+/* End pages */
+
+.end-titles {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+  .end-score {
+    display: inline-block;
+    background-color: #000;
+    color: #03FF80; /*green*/
+    padding: 2rem 3rem;
+    margin: 0;
+    box-shadow: 0 24px 32px 0px rgba(0, 0, 0, 0.1);
+  }
+
+.end-wrong-answers-wrapper {
+  text-align: center;
+}
+  .end-wrong-answers {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0em 0em 3rem;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+  }
+    .end-subtitle {
+      text-align: left;
+    }
+    .end-wrong-answers li {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+      .end-wrong-answers li img {
+        width: 10rem;
+        align-self: center;
+        border-radius: 8px;
+        box-shadow: 0px 6px 12px -2px rgba(0,0,0,0.1);
+      }
+      .end-wrong-answers li span {
+        align-self: center;
+        font-size: 1.5rem;
+        margin: 1rem;
+      }
+  .end-game-button {
+    display: inline-block;
+    background-color: #03FF80; /*green*/
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    box-shadow: 0px 6px 20px -3px rgba(0,0,0,0.1);
+  }
+
+/* Breakpoints */
+
+@media (max-width: 42rem) {
+
+  .homeScreen {
+    text-align: center;
+  }
+  .card-wrapper {
+    flex-flow: column;
+    max-width: 24rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+  }
+  .card {
+    margin-bottom: 1.25rem;
+  }
+  .game-wrapper {
+    flex-flow: column;
+    padding: 1rem 0;
+  }
+  .game-img-wrapper {
+    align-self: center;
+  }
+  .game-controls {
+    padding: 1rem 0;
+  }
+  .next-button {
+    padding: 1rem 8rem 1rem 2rem;
+    margin: 1rem 0rem;
+  }
+  .end-wrong-answers {
+    flex-flow: column;
+  }
+
 }

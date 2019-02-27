@@ -32,7 +32,10 @@ const resetAnswerClasses = () => {
 
 const handleQuitClick = (roundHandler, advanceRound) => () => {
   showScreen('home-screen')
-  document.getElementById('names-container').removeEventListener('click', roundHandler)
+  const nameButtons = document.querySelectorAll('.userName')
+  nameButtons.forEach((button) => {
+    button.removeEventListener('click', roundHandler)
+  })
   document.getElementById('next-button').removeEventListener('click', advanceRound)
 }
 
@@ -148,13 +151,15 @@ const handleNextClick = ({ rounds, getRoundNumber, incRoundNumber, getIsLastRoun
       incorrect.forEach(incorrectAnswer => {
         const node = document.createElement('LI')
         const imgNode = document.createElement('IMG')
-        var textNode = document.createTextNode(incorrectAnswer.realName)
+        const span = document.createElement('SPAN')
+        const textNode = document.createTextNode(incorrectAnswer.realName)
         imgNode.src = incorrectAnswer.image
         imgNode.class = 'incorrectAnswerImg'
         textNode.class = 'incorrectAnswerName'
 
-        node.appendChild(textNode)
         node.appendChild(imgNode)
+        span.appendChild(textNode)
+        node.appendChild(span)
         incorrectAnswersList.appendChild(node)
       })
       document.getElementById('score').textContent = rounds.length - incorrect.length
@@ -176,7 +181,11 @@ const startGame = (numberOfRoundsString, getInitialState) => {
 
   const roundHandler = handleNameClick({ rounds, addCorrect, addIncorrect, getRoundNumber, getIsLastRound })
   const advanceRound = handleNextClick({ rounds, getRoundNumber, incRoundNumber, getIsLastRound, getIncorrect })
-  document.getElementById('names-container').addEventListener('click', roundHandler)
+  const nameButtons = document.querySelectorAll('.userName')
+
+  nameButtons.forEach((button) => {
+    button.addEventListener('click', roundHandler)
+  })
   document.getElementById('next-button').addEventListener('click', advanceRound)
 
   document.getElementById('quit-button').addEventListener('click', handleQuitClick(roundHandler, advanceRound))
