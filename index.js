@@ -11,36 +11,36 @@ const people = {
   'Bobbi Talbot': './images/Bobbi Talbot.jpg',
   'Bobby Steere': './images/Bobby Steere.jpg',
   'Brooke Berte': './images/Brooke Berte.jpg',
-  'Callum Henderson': './images/Callum Henderson.jpg',
-  'Callum Taylor': './images/Callum Taylor.jpg',
-  'Cameron Stokes': './images/Cameron Stokes.jpg',
-  'Catherine Handley': './images/Catherine Handley.jpg',
-  'Cecily Melson': './images/Cecily Melson.jpg',
-  'Charlie Colwill': './images/Charlie Colwill.jpg',
-  'Charlie Greene': './images/Charlie Greene.jpg',
-  'Charlotte Emmersom': './images/Charlotte Emmersom.jpg',
-  'Charly Nelson': './images/Charly Nelson.jpg',
-  'Chris Priestly': './images/Chris Priestly.jpg',
-  'Christian Smith': './images/Christian Smith.jpg',
-  'Daisy Eakins': './images/Daisy Eakins.jpg',
-  'Dan Gillespie': './images/Dan Gillespie.jpg',
-  'Dayo Kamson': './images/Dayo Kamson.jpg',
-  'Dylan Davenport': './images/Dylan Davenport.jpg',
-  'Ed Burgess': './images/Ed Burgess.jpg',
-  'Eithne Bryan': './images/Eithne Bryan.jpg',
-  'Elliot Meller': './images/Elliot Meller.jpg',
-  'Elliya Cleveley': './images/Elliya Cleveley.jpg',
-  'Emily Barrett': './images/Emily Barrett.jpg',
-  'Emily Habin': './images/Emily Habin.jpg',
-  'Emma Baggott': './images/Emma Baggott.jpg',
-  'Emma Brazell': './images/Emma Brazell.jpg',
-  'Emma Davis': './images/Emma Davis.jpg',
-  'Emma Engelmann': './images/Emma Engelmann.jpg',
-  'Emma Guiness': './images/Emma Guiness.jpg',
-  'Emma Brazell': './images/Emma Brazell.jpg',
-  'Emma Brazell': './images/Emma Brazell.jpg',
-  'Emma Brazell': './images/Emma Brazell.jpg',
-  'Emma Brazell': './images/Emma Brazell.jpg',
+  'Callum Henderson': './images/Callum Henderson.jpg'
+  // 'Callum Taylor': './images/Callum Taylor.jpg',
+  // 'Cameron Stokes': './images/Cameron Stokes.jpg',
+  // 'Catherine Handley': './images/Catherine Handley.jpg',
+  // 'Cecily Melson': './images/Cecily Melson.jpg',
+  // 'Charlie Colwill': './images/Charlie Colwill.jpg',
+  // 'Charlie Greene': './images/Charlie Greene.jpg',
+  // 'Charlotte Emmersom': './images/Charlotte Emmersom.jpg',
+  // 'Charly Nelson': './images/Charly Nelson.jpg',
+  // 'Chris Priestly': './images/Chris Priestly.jpg',
+  // 'Christian Smith': './images/Christian Smith.jpg',
+  // 'Daisy Eakins': './images/Daisy Eakins.jpg',
+  // 'Dan Gillespie': './images/Dan Gillespie.jpg',
+  // 'Dayo Kamson': './images/Dayo Kamson.jpg',
+  // 'Dylan Davenport': './images/Dylan Davenport.jpg',
+  // 'Ed Burgess': './images/Ed Burgess.jpg',
+  // 'Eithne Bryan': './images/Eithne Bryan.jpg',
+  // 'Elliot Meller': './images/Elliot Meller.jpg',
+  // 'Elliya Cleveley': './images/Elliya Cleveley.jpg',
+  // 'Emily Barrett': './images/Emily Barrett.jpg',
+  // 'Emily Habin': './images/Emily Habin.jpg',
+  // 'Emma Baggott': './images/Emma Baggott.jpg',
+  // 'Emma Brazell': './images/Emma Brazell.jpg',
+  // 'Emma Davis': './images/Emma Davis.jpg',
+  // 'Emma Engelmann': './images/Emma Engelmann.jpg',
+  // 'Emma Guiness': './images/Emma Guiness.jpg',
+  // 'Emma Brazell': './images/Emma Brazell.jpg',
+  // 'Emma Brazell': './images/Emma Brazell.jpg',
+  // 'Emma Brazell': './images/Emma Brazell.jpg',
+  // 'Emma Brazell': './images/Emma Brazell.jpg',
 }
 
 const getInitialState = (gameNames, numberOfRounds) => ({
@@ -112,23 +112,30 @@ const init = () => {
 const names = Object.keys(people)
 const numberOfNames = names.length
 
-const generateRandomIndex = (indexToAvoid) => {
-  const randomIndex = Math.floor(Math.random() * numberOfNames)
-  // if (randomIndex === indexToAvoid) {
-  //   return generateRandomIndex(indexToAvoid)
-  // }
-  return randomIndex
+const checkIndex = (indexToAvoid, randomIndexArray, generateIndex) => {
+  const index = generateIndex()
+  if (index === indexToAvoid || randomIndexArray.includes(index)) {
+    return checkIndex(indexToAvoid, randomIndexArray, generateIndex)
+  }
+  return index
+}
+
+const generateRandomIndexArray = (indexToAvoid) => {
+  let randomIndexArray = []
+  const generateIndex = () => Math.floor(Math.random() * numberOfNames)
+  while (randomIndexArray.length < 3) {
+    const index = checkIndex(indexToAvoid, randomIndexArray, generateIndex)
+    randomIndexArray.push(index)
+  }
+
+  return randomIndexArray
 }
 
 const gameNames = names.map((name, i) => {
   return {
     realName: name,
     image: people[name],
-    names: [
-      names[generateRandomIndex(i)],
-      names[generateRandomIndex(i)],
-      names[generateRandomIndex(i)]
-    ]
+    names: generateRandomIndexArray(i).map(index => names[index])
   }
 })
 
@@ -139,7 +146,7 @@ const newRound = (rounds, getRoundNumber) => {
   const nameButtons = document.querySelectorAll('.userName')
 
   document.getElementById('next-button').classList.add('hide')
-  document.getElementById('current-round').textContent = roundNumber
+  document.getElementById('current-round').textContent = roundNumber + 1
   nameButtons.forEach((button, i) => {
     button.textContent = namesToPlay[i]
     button.disabled = false
