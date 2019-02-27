@@ -144,7 +144,6 @@ img {
       margin: 2.5rem auto 3rem;
     }
 
-
 /* Quiz pages */
 
 .nav-wrapper {
@@ -264,6 +263,7 @@ img {
 }
   .end-wrong-answers {
     display: flex;
+    flex-wrap: wrap;
     margin: 0em 0em 3rem;
     padding: 0;
     list-style-type: none;
@@ -274,7 +274,7 @@ img {
     }
     .end-wrong-answers li {
       display: flex;
-      width: 50%;
+      margin-bottom: 1rem;
     }
       .end-wrong-answers li img {
         width: 10rem;
@@ -295,5 +295,39 @@ img {
     box-shadow: 0px 6px 20px -3px rgba(0,0,0,0.1);
   }
 
+/* Breakpoints */
+
+@media (max-width: 42rem) {
+
+  .homeScreen {
+    text-align: center;
+  }
+  .card-wrapper {
+    flex-flow: column;
+    max-width: 24rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+  }
+  .card {
+    margin-bottom: 1.25rem;
+  }
+  .game-wrapper {
+    flex-flow: column;
+    padding: 1rem 0;
+  }
+  .game-img-wrapper {
+    align-self: center;
+  }
+  .game-controls {
+    padding: 1rem 0;
+  }
+  .next-button {
+    padding: 1rem 8rem 1rem 2rem;
+    margin: 1rem 0rem;
+  }
+  .end-wrong-answers {
+    flex-flow: column;
+  }
 
 }
