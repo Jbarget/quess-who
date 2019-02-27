@@ -116,7 +116,7 @@ img {
         }
     .card-faces {
       margin-top: 0;
-      margin-bottom: 6rem;
+      margin-bottom: 3rem;
       font-size: 1.5rem;
       color: #000;
     }
@@ -141,7 +141,7 @@ img {
           background-color: #000;
         }
     .card-footer {
-      margin: 2.5rem auto 5rem;
+      margin: 2.5rem auto 3rem;
     }
 
 
