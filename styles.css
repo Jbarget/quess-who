@@ -1,5 +1,6 @@
 
 /* Reset */
+/* 8px basis - 8s are nice numbers */
 
 html {
   font-size: 16px; /* 8x2=16 */
@@ -16,6 +17,7 @@ img {
 }
 
 /* Utility classes */
+/* applied directly to elements irrespective of use-context */
 
 .hide {
   display: none
@@ -47,12 +49,18 @@ img {
 
 /* Custom UI classes */
 /* ======================================================== */
+/*
+  colours used: Pure Black, Pure White, Green and Blue
+  - defined below.
+  file is separated into 3 parts: styles for "home", "game"
+   and "endgame".
+*/
 
 .gameScreen, .endScreen {
     padding: 3rem 1.25rem 4rem;
 }
   .homeScreen {
-    background-image: url("images/logo/gorilla-green.svg");
+    background-image: url("images/ui/gorilla-green.svg");
     background-repeat: no-repeat;
     background-position: right;
     background-position-y: top;
@@ -72,7 +80,7 @@ img {
 
 
 
-/* Front-page cards */
+/* Home-page styles */
 
 .card-wrapper {
     margin-top: 3rem;
@@ -193,7 +201,7 @@ img {
       justify-content: space-between;
     }
       .game-answer {
-        transition: all 0.25s;
+        transition: all 0.2s ease, background-position 0s;
         padding: 1.75rem;
         margin-bottom: 0.75rem;
         text-align: left;
@@ -210,17 +218,30 @@ img {
         border-width: 2px;
         border-color: #000;
         background-color: #03FF80; /*green*/
+        background-image: url("images/ui/Success.svg");
+        background-repeat: no-repeat;
+        background-position: 90% center;
+        background-size: 2rem; /* 32px */
         color: #000;
       }
       .incorrectAnswer {
         text-decoration: line-through;
         color: rgba(0,0,0,0.5);
+        background-color: rgba(0,0,0,0.1);
+        background-image: url("images/ui/Close.svg");
+        background-repeat: no-repeat;
+        background-position: 90% center;
+        background-size: 2rem; /* 32px */
       }
 
       .next-button {
         font-size: 1.25rem;
-        padding: 0.5rem 2rem;
+        padding: 0.5rem 4rem 0.5rem 1rem;
         border: 1px solid rgb(0, 0, 0);
+        background-image: url(images/ui/Arrow-Right.svg);
+        background-repeat: no-repeat;
+        background-position: 90% center;
+        background-size: 0.6rem; /* 9.6px */
       }
 
 /* End pages */

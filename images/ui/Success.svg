@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>Icon/Success</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="8.926 18.652 4 13.725 5.767 11.957 8.841 15.031 17.959 5 19.808 6.682"></polygon>
+    </defs>
+    <g id="Icon/Success" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Bounding-Box" points="0 0 24 0 24 24 0 24"></polygon>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Mask"></g>
+        <g id="Mixin/Fill/Black" mask="url(#mask-2)" fill="#000000">
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+        </g>
+    </g>
+</svg>
