@@ -10,7 +10,7 @@
 
 1. Follow steps 1 and 2 in the `Getting started` section above
 1. add the image to `images` folder with the name in this format `Joe Bloggs.jpg`
-1. in `index.js` add the new person to the list of people in alphabetical order following the format shown
+1. in `people.js` add the new person to the list of people in alphabetical order following the format shown
 1. save the file
 1. in your terminal run `git add .`
 1. then `git commit -m "adding {insert name of person here}"`
