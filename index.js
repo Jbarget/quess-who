@@ -104,6 +104,7 @@ const newRound = (rounds, getRoundNumber) => {
   const currentRound = rounds[roundNumber]
   const namesToPlay = shuffleArray(currentRound.names.concat([currentRound.realName]))
   const nameButtons = document.querySelectorAll('.userName')
+  document.getElementById('user-image').src = currentRound.image
 
   document.getElementById('next-button').classList.add('hide')
   document.getElementById('current-round').textContent = roundNumber + 1
@@ -111,7 +112,6 @@ const newRound = (rounds, getRoundNumber) => {
     button.textContent = namesToPlay[i]
     button.disabled = false
   })
-  document.getElementById('user-image').src = currentRound.image
 }
 
 const handleNameClick = ({ rounds, addCorrect, addIncorrect, getRoundNumber, getIsLastRound }) => (event) => {
@@ -152,6 +152,7 @@ const handleNextClick = ({ rounds, getRoundNumber, incRoundNumber, getIsLastRoun
       incorrectAnswersList.removeChild(incorrectAnswersList.firstChild)
     }
     fastdom.mutate(() => {
+      console.log('hello');
       incorrect.forEach(incorrectAnswer => {
         const node = document.createElement('LI')
         const imgNode = document.createElement('IMG')
